@@ -71,7 +71,7 @@ module.exports = {
       files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
       rules: {
         // Regla para las variables que sean en camelCase
-        '@typescript-eslint/camelcase': 'on',
+        // '@typescript-eslint/camelcase': 'on',
 
 
         // Regla para el orden de los miembros en las clases
