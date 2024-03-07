@@ -5,10 +5,13 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript",
-        "standard"
+        "standard-with-typescript"
     ],
     "overrides": [
+        {
+            "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+            "extends": "standard-with-typescript"
+        }
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -18,10 +21,5 @@
         "react"
     ],
     "rules": {
-    },
-    "eslintConfig": {
-        "extends": [
-            "standard"
-        ]
-    },
+    }
 }
