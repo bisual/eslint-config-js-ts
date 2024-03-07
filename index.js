@@ -99,6 +99,8 @@ module.exports = {
           }
         ],
 
+        "camelcase": "on",
+        
         "no-unused-vars": [
           "error",
           {
