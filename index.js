@@ -70,6 +70,10 @@ module.exports = {
     {
       files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
       rules: {
+        // Regla para las variables que sean en camelCase
+        "unicorn/filename-case": ["error", {"case": "camelCase"}],
+
+
         // Regla para el orden de los miembros en las clases
         // Atributos → Constructor → Public → Protected → Private
         "@typescript-eslint/member-ordering": [
