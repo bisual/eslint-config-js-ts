@@ -96,14 +96,14 @@ module.exports = {
         // Allow expressions to work with react hooks. Annoying to have to
         // typedef each arrow function in a `useEffect` or `useCallback` when
         // it can be derived.
-        "@typescript-eslint/explicit-function-return-type": [
-          "error",
-          {
-            allowExpressions: true,
-            // allow FC definitions for React
-            allowTypedFunctionExpressions: true,
-          },
-        ],
+        // "@typescript-eslint/explicit-function-return-type": [
+        //   "error",
+        //   {
+        //     allowExpressions: true,
+        //     // allow FC definitions for React
+        //     allowTypedFunctionExpressions: true,
+        //   },
+        // ],
 
         // not a big fan of requiring unknown objects to require the index signature
         "@typescript-eslint/ban-types": "off",
