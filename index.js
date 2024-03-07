@@ -68,6 +68,65 @@ module.exports = {
   },
   overrides: [
     {
+      files: ["**/*.ts"],
+      rules: {
+        // Otros ajustes específicos de Angular
+        // ...
+        // Regla para el orden de los miembros en las clases
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: 'class',
+            format: ['camelCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+          {
+            selector: 'classProperty',
+            modifiers: ['public'],
+            format: ['camelCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+          {
+            selector: 'classProperty',
+            modifiers: ['protected'],
+            format: ['camelCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+          {
+            selector: 'classProperty',
+            modifiers: ['private'],
+            format: ['camelCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+          {
+            selector: 'classMethod',
+            modifiers: ['public'],
+            format: ['camelCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+          {
+            selector: 'classMethod',
+            modifiers: ['protected'],
+            format: ['camelCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+          {
+            selector: 'classMethod',
+            modifiers: ['private'],
+            format: ['camelCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+        ],
+      },
+    },
+    {
       files: ["**/*.ts", "**/*.tsx"],
       extends: ["plugin:@typescript-eslint/recommended"],
       rules: {
