@@ -127,6 +127,13 @@ module.exports = {
             leadingUnderscore: 'forbid',
             trailingUnderscore: 'forbid',
           },
+          // las variables privadas en camelCase con un guión bajo al principio
+          {
+            "selector": "variable",
+            "modifiers": ["private"],
+            "format": ["camelCase"],
+            "leadingUnderscore": "require"
+          }
         ],
       },
     },
