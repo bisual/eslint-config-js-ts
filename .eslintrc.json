@@ -5,7 +5,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard-with-typescript"
+        "standard-with-typescript",
+        "standard"
     ],
     "overrides": [
     ],
@@ -17,5 +18,10 @@
         "react"
     ],
     "rules": {
-    }
+    },
+    "eslintConfig": {
+        "extends": [
+            "standard"
+        ]
+    },
 }
