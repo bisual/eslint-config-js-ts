@@ -128,48 +128,6 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   files: [
-    //     "src/setupTests.js",
-    //     "src/setupTests.ts",
-    //     "**/__tests__/**",
-    //     "**/*.test.*",
-    //   ],
-    //   env: {
-    //     jest: true,
-    //   },
-    //   // allow for less strict rules when writing tests
-    //   rules: {
-    //     "prefer-template": "off",
-
-    //     "@typescript-eslint/no-explicit-any": "off",
-    //     "@typescript-eslint/explicit-function-return-type": "off",
-    //     "@typescript-eslint/no-object-literal-type-assertion": "off",
-    //     "@typescript-eslint/no-var-requires": "off",
-    //     "@typescript-eslint/no-empty-function": "off",
-    //     "@typescript-eslint/ban-ts-comment": "off",
-    //     "@typescript-eslint/no-empty-function": "off",
-
-    //     "jsx-a11y/anchor-has-content": 0,
-    //     "jsx-a11y/anchor-is-valid": "off",
-    //     "jsx-a11y/click-events-have-key-events": 0,
-    //     "jsx-a11y/control-has-associated-label": "off",
-    //     "jsx-a11y/no-autofocus": "off",
-    //     "jsx-a11y/no-static-element-interactions": "off",
-
-    //     "react/prop-types": "off",
-    //     "react/display-name": "off",
-    //     "react/prefer-stateless-function": "off",
-    //   },
-    // },
-    // {
-    //   files: ["**/__tests__/**", "**/*.test.*"],
-    //   extends: ["plugin:jest/recommended", "plugin:testing-library/react"],
-    //   rules: {
-    //     // it's valid to do @jest-environment or other things in tests
-    //     "tsdoc/syntax": 0,
-    //   },
-    // },
     {
       files: ["**/*.js", "**/*.jsx"],
       rules: {
