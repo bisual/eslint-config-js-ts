@@ -129,7 +129,12 @@ module.exports = {
           },
           // las variables privadas en camelCase con un guión bajo al principio
           {
-            "selector": "variable",
+            "selector": "memberLike",
+            "format": ["camelCase"],
+            "leadingUnderscore": "forbid"
+          },
+          {
+            "selector": "memberLike",
             "modifiers": ["private"],
             "format": ["camelCase"],
             "leadingUnderscore": "require"
