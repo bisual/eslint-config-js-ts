@@ -8,10 +8,6 @@
         "standard-with-typescript"
     ],
     "overrides": [
-        {
-            "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
-            "extends": "standard-with-typescript"
-        }
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
