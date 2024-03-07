@@ -1,3 +1,5 @@
+const confusingBrowserGlobals = require("confusing-browser-globals");
+
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
