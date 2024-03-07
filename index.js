@@ -68,7 +68,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["**/*.ts"],
+      files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
       rules: {
         // Regla para el orden de los miembros en las clases
         // Atributos → Constructor → Public → Protected → Private
@@ -93,6 +93,17 @@ module.exports = {
               "private-instance-method"
             ]
           }
+        ],
+
+        "no-unused-vars": [
+          "error",
+          {
+            vars: "all",
+            varsIgnorePattern: "^_",
+            args: "after-used",
+            varsIgnorePattern: "^_",
+            ignoreRestSiblings: true,
+          },
         ],
 
         '@typescript-eslint/naming-convention': [
@@ -168,20 +179,20 @@ module.exports = {
         ],
       },
     },
-    {
-      files: ["**/*.js", "**/*.jsx"],
-      rules: {
-        "no-unused-vars": [
-          "error",
-          {
-            vars: "all",
-            varsIgnorePattern: "^_",
-            args: "after-used",
-            varsIgnorePattern: "^_",
-            ignoreRestSiblings: true,
-          },
-        ],
-      },
-    },
+    // {
+    //   files: ["**/*.js", "**/*.jsx"],
+    //   rules: {
+    //     "no-unused-vars": [
+    //       "error",
+    //       {
+    //         vars: "all",
+    //         varsIgnorePattern: "^_",
+    //         args: "after-used",
+    //         varsIgnorePattern: "^_",
+    //         ignoreRestSiblings: true,
+    //       },
+    //     ],
+    //   },
+    // },
   ],
 };
