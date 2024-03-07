@@ -73,14 +73,37 @@ module.exports = {
         // Otros ajustes específicos de Angular
         // ...
         // Regla para el orden de los miembros en las clases
+        "@typescript-eslint/member-ordering": [
+          "error",
+          {
+            default: [
+              // Atributos
+              "public-static-field",
+              "protected-static-field",
+              "private-static-field",
+              "public-instance-field",
+              "protected-instance-field",
+              "private-instance-field",
+              // Constructor
+              "constructor",
+              // Métodos públicos
+              "public-instance-method",
+              // Métodos protegidos
+              "protected-instance-method",
+              // Métodos privados
+              "private-instance-method"
+            ]
+          }
+        ],
+
         '@typescript-eslint/naming-convention': [
           'error',
-          {
-            selector: 'class',
-            format: ['camelCase'],
-            leadingUnderscore: 'forbid',
-            trailingUnderscore: 'forbid',
-          },
+          // {
+          //   selector: 'class',
+          //   format: ['camelCase'],
+          //   leadingUnderscore: 'forbid',
+          //   trailingUnderscore: 'forbid',
+          // },
           {
             selector: 'classProperty',
             modifiers: ['public'],
