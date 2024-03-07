@@ -70,9 +70,8 @@ module.exports = {
     {
       files: ["**/*.ts"],
       rules: {
-        // Otros ajustes específicos de Angular
-        // ...
         // Regla para el orden de los miembros en las clases
+        // Atributos → Constructor → Public → Protected → Private
         "@typescript-eslint/member-ordering": [
           "error",
           {
@@ -98,51 +97,10 @@ module.exports = {
 
         '@typescript-eslint/naming-convention': [
           'error',
-          // {
-          //   selector: 'class',
-          //   format: ['camelCase'],
-          //   leadingUnderscore: 'forbid',
-          //   trailingUnderscore: 'forbid',
-          // },
           {
-            selector: 'classProperty',
-            modifiers: ['public'],
-            format: ['camelCase'],
-            leadingUnderscore: 'forbid',
-            trailingUnderscore: 'forbid',
-          },
-          {
-            selector: 'classProperty',
-            modifiers: ['protected'],
-            format: ['camelCase'],
-            leadingUnderscore: 'forbid',
-            trailingUnderscore: 'forbid',
-          },
-          {
-            selector: 'classProperty',
-            modifiers: ['private'],
-            format: ['camelCase'],
-            leadingUnderscore: 'forbid',
-            trailingUnderscore: 'forbid',
-          },
-          {
-            selector: 'classMethod',
-            modifiers: ['public'],
-            format: ['camelCase'],
-            leadingUnderscore: 'forbid',
-            trailingUnderscore: 'forbid',
-          },
-          {
-            selector: 'classMethod',
-            modifiers: ['protected'],
-            format: ['camelCase'],
-            leadingUnderscore: 'forbid',
-            trailingUnderscore: 'forbid',
-          },
-          {
-            selector: 'classMethod',
-            modifiers: ['private'],
-            format: ['camelCase'],
+            // Los nombres de las clases deben ser en PascalCase
+            selector: 'class',
+            format: ['PascalCase'],
             leadingUnderscore: 'forbid',
             trailingUnderscore: 'forbid',
           },
