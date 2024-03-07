@@ -3,10 +3,12 @@ const confusingBrowserGlobals = require("confusing-browser-globals");
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: "latest",
     sourceType: "module",
+    project: "./tsconfig.json",
   },
   extends: [
+    "airbnb-typescript/base",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -16,8 +18,9 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
     "prettier",
+    "plugin:prettier/recommended"
   ],
-  plugins: ["@typescript-eslint", "jest", "jsx-a11y", "react-hooks", "tsdoc"],
+  plugins: ["@typescript-eslint", "jsx-a11y", "react-hooks", "tsdoc", "prettier"],
   env: {
     es6: true,
     node: true,
@@ -41,6 +44,13 @@ module.exports = {
     "no-console": "warn",
     "no-use-before-define": "warn",
 
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+
     "no-restricted-globals": ["error", "isFinite", "isNaN"].concat(
       confusingBrowserGlobals
     ),
@@ -52,6 +62,9 @@ module.exports = {
 
     "object-shorthand": ["error", "always"],
     "no-useless-rename": ["error"],
+
+    "@typescript-eslint/no-shadow": "off",
+    "@typescript-eslint/naming-convention": "off"
   },
   overrides: [
     {
