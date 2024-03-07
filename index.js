@@ -99,8 +99,7 @@ module.exports = {
           }
         ],
 
-        "camelcase": "on",
-        
+
         "no-unused-vars": [
           "error",
           {
@@ -118,6 +117,13 @@ module.exports = {
             // Los nombres de las clases deben ser en PascalCase
             selector: 'class',
             format: ['PascalCase'],
+            leadingUnderscore: 'forbid',
+            trailingUnderscore: 'forbid',
+          },
+          // las variables en camelCase
+          {
+            selector: 'variable',
+            format: ['camelCase'],
             leadingUnderscore: 'forbid',
             trailingUnderscore: 'forbid',
           },
