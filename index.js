@@ -105,9 +105,9 @@ module.exports = {
             varsIgnorePattern: "^_",
             ignoreRestSiblings: true,
           },
-          {
-            "varsIgnorePattern": "^is[A-Z].*"
-          }
+          // {
+          //   "varsIgnorePattern": "^is[A-Z].*"
+          // }
         ],
 
         '@typescript-eslint/naming-convention': [
