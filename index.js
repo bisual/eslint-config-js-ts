@@ -96,19 +96,19 @@ module.exports = {
         ],
 
 
-        "no-unused-vars": [
-          "error",
-          {
-            vars: "all",
-            varsIgnorePattern: "^_",
-            args: "after-used",
-            varsIgnorePattern: "^_",
-            ignoreRestSiblings: true,
-          },
-          // {
-          //   "varsIgnorePattern": "^is[A-Z].*"
-          // }
-        ],
+        // "no-unused-vars": [
+        //   "error",
+        //   {
+        //     vars: "all",
+        //     varsIgnorePattern: "^_",
+        //     args: "after-used",
+        //     varsIgnorePattern: "^_",
+        //     ignoreRestSiblings: true,
+        //   },
+        //   // {
+        //   //   "varsIgnorePattern": "^is[A-Z].*"
+        //   // }
+        // ],
 
         '@typescript-eslint/naming-convention': [
           'error',
