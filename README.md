@@ -3,6 +3,7 @@
 ## Instalación
 
 1.Instalar dependencias
+
 Ejecute el siguiente comando en la terminal para instalar las dependencias necesarias:
 
 ```bash
@@ -10,6 +11,7 @@ Ejecute el siguiente comando en la terminal para instalar las dependencias neces
 ```
 
 2.Configuración de ESLint
+
 Cree un archivo llamado `.eslintrc.json` en la raíz del proyecto y agregue el siguiente contenido:
 
 ```json
@@ -19,6 +21,7 @@ Cree un archivo llamado `.eslintrc.json` en la raíz del proyecto y agregue el s
 ```
 
 3.Configuración de formateo automático
+
 Para habilitar el formateo automático del código al guardar, siga estos pasos:
 
 - Cree una carpeta llamada `.vscode` en la raíz del proyecto.
