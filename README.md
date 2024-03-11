@@ -33,3 +33,5 @@ Para habilitar el formateo automático del código al guardar, siga estos pasos:
   "eslint.validate": ["javascript", "javascriptreact", "typescript"]
 }
 ```
+
+Por último reinicie Visual Studio Code.
