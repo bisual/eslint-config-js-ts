@@ -13,6 +13,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@angular-eslint/eslint-plugin-template": "^17.2.1",
     "@html-eslint/eslint-plugin": "^0.23.1",
     "@html-eslint/parser": "^0.23.0",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
