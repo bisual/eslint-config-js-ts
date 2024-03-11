@@ -51,6 +51,11 @@ module.exports = {
       }
     ],
 
+    "@typescript-eslint/explicit-member-accessibility": [
+      "error",
+      { overrides: { constructors: "no-public" } },
+    ],
+
     "no-restricted-globals": ["error", "isFinite", "isNaN"].concat(
       confusingBrowserGlobals
     ),
