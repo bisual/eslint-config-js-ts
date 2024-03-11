@@ -33,7 +33,8 @@ Para habilitar el formateo automático del código al guardar, siga estos pasos:
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript"]
+  "eslint.validate": ["javascript", "typescript", "javascriptreact"]
+  // javascriptreact -> para archivos con extensión .jsx o .tsx
 }
 ```
 
