@@ -21,7 +21,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  plugins: ["@typescript-eslint", "jsx-a11y", "react-hooks", "tsdoc", "prettier"],
+  plugins: ["@typescript-eslint", "jsx-a11y", "react-hooks", "tsdoc", "prettier", "simple-import-sort"],
   env: {
     es6: true,
     node: true,
