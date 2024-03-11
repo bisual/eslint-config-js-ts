@@ -184,7 +184,7 @@ module.exports = {
           { ignoreTypeReferences: true },
         ],
   },
-  files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  // files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
   overrides: [
     // {
     //   files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
