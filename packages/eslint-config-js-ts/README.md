@@ -7,7 +7,7 @@
 Ejecute el siguiente comando en la terminal para instalar las dependencias necesarias:
 
 ```bash
-  npm install -D @bisual/eslint-config eslint prettier
+  npm install -D @bisual/eslint-config-js-ts eslint
 ```
 
 2.Configuración de ESLint
@@ -16,7 +16,7 @@ Cree un archivo llamado `.eslintrc.json` en la raíz del proyecto y agregue el s
 
 ```json
 {
-  "extends": ["@bisual/eslint-config"]
+  "extends": ["@bisual/eslint-config-js-ts"]
 }
 ```
 
@@ -38,4 +38,5 @@ Para habilitar el formateo automático del código al guardar, siga estos pasos:
 }
 ```
 
-Por último reinicie Visual Studio Code.
+Si no le funciona el formateo automático, puede que necesite instalar la extensión ESLint en Visual Studio Code.
+Si no le funciona pruebe a reiniciar Visual Studio Code.
