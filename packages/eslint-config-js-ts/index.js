@@ -19,7 +19,8 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "prettier",
     "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:tailwindcss/recommended"
   ],
   plugins: ["@typescript-eslint", "jsx-a11y", "react-hooks", "tsdoc", "prettier", "simple-import-sort"],
   env: {
@@ -173,4 +174,10 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error"
   },
+  overrides: [
+    {
+      files: ['*.html', '*.blade.php'],
+      parser: '@angular-eslint/template-parser',
+    },
+  ]
 };
