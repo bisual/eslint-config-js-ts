@@ -1,12 +1,15 @@
 {
+  "name": "@bisual/eslint",
   "author": "Bisual",
   "version": "0.0.1",
   "description": "Bisual ESLint Config",
   "main": "index.js",
   "keywords": [],
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
