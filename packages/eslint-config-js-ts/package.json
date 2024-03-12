@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "Bisual ESLint configuration for Front-end projects",
   "main": "index.js",
+  "private": false,
   "keywords": [
     "airbnb",
     "eslint",
