@@ -1,5 +1,5 @@
 {
-  "name": "@bisual/eslint-config-frontend",
+  "name": "@bisual/eslint-js-ts",
   "author": "Bisual",
   "version": "0.0.1",
   "description": "Bisual ESLint configuration for Front-end projects",
