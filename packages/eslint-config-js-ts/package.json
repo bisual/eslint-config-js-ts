@@ -1,7 +1,7 @@
 {
   "name": "@bisual/eslint-js-ts",
   "author": "Bisual",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Bisual ESLint configuration for Front-end projects",
   "main": "index.js",
   "private": false,
@@ -39,7 +39,7 @@
   },
   "eslintConfig": {
     "parserOptions": {
-      "project": "./packages/eslint-config-frontend/tsconfig.json"
+      "project": "./tsconfig.json"
     }
   },
   "peerDependencies": {
