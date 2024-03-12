@@ -2,11 +2,21 @@
   "name": "@bisual/eslint-config-frontend",
   "author": "Bisual",
   "version": "0.0.1",
-  "description": "Bisual ESLint Config",
+  "description": "Bisual ESLint configuration for Front-end projects",
   "main": "index.js",
-  "keywords": [],
+  "keywords": [
+    "airbnb",
+    "eslint",
+    "typescript"
+  ],
+  "homepage": "https://github.com/bisual/bisual-eslint/tree/main/packages/eslint-config-frontend",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bisual/bisual-eslint.git",
+    "directory": "packages/eslint-config-frontend"
   },
   "files": [
     "index.js"
@@ -28,13 +38,19 @@
   },
   "eslintConfig": {
     "parserOptions": {
-      "project": "./tsconfig.json"
+      "project": "./packages/eslint-config-frontend/tsconfig.json"
     }
   },
   "peerDependencies": {
-    "eslint": ">=8.0.0"
+    "eslint": ">=8.0.0",
+    "typescript": ">=4.0.0"
   },
   "devDependencies": {
     "eslint": "^8.57.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   }
 }
