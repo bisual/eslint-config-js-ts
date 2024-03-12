@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Bisual ESLint Config",
   "keywords": [],
-  "private": true,
+  "organization": "bisual",
   "workspaces": [
     "packages/*"
   ],
