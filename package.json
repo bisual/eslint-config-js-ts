@@ -4,11 +4,10 @@
   "version": "0.0.1",
   "description": "Bisual ESLint Config",
   "keywords": [],
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
