@@ -1,0 +1,25 @@
+{
+    "name": "bisual/eslint-config-php",
+    "description": "Bisual eslint config for PHP projects",
+    "type": "library",
+    "keywords": [
+        "bisual",
+        "php",
+        "lint"
+    ],
+    "homepage": "https://github.com/bisual/bisual-eslint/tree/main/packages/eslint-config-php",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Bisual\\EslintConfigPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bisual"
+        }
+    ],
+    "require": {
+        "friendsofphp/php-cs-fixer": "^3.51"
+    }
+}
