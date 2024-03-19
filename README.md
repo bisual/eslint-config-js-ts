@@ -1,18 +1,18 @@
-# Bisual eslint
+# Bisual ESLint Config JS/TS
 
-## Instalación
+## Installation
 
-1.Instalar dependencias
+### Install Dependencies
 
-Ejecute el siguiente comando en la terminal para instalar las dependencias necesarias:
+To get started, install the following dependencies by running this command in your terminal:
 
 ```bash
   npm install -D @bisual/eslint-config-js-ts eslint
 ```
 
-2.Configuración de ESLint
+### ESLint Configuration
 
-Cree un archivo llamado `.eslintrc.json` en la raíz del proyecto y agregue el siguiente contenido:
+Create a file named .eslintrc.json at the root of your project and add the following content:
 
 ```json
 {
@@ -20,13 +20,13 @@ Cree un archivo llamado `.eslintrc.json` en la raíz del proyecto y agregue el s
 }
 ```
 
-3.Configuración de formateo automático
+### Automatic Formatting Configuration
 
-Para habilitar el formateo automático del código al guardar, siga estos pasos:
+Follow these steps to enable automatic code formatting on save:
 
-- Cree una carpeta llamada `.vscode` en la raíz del proyecto.
-- Dentro de la carpeta `.vscode`, cree un archivo llamado `settings.json`.
-- Agregue el siguiente contenido al archivo `settings.json`:
+1. Create a folder named .vscode in the root of your project.
+2. Inside .vscode, create a file named settings.json.
+3. Add the following content to settings.json:
 
 ```json
 {
@@ -38,5 +38,92 @@ Para habilitar el formateo automático del código al guardar, siga estos pasos:
 }
 ```
 
-Si no le funciona el formateo automático, puede que necesite instalar la extensión ESLint en Visual Studio Code.
-Si no le funciona pruebe a reiniciar Visual Studio Code.
+## Angular
+
+If you're working on an Angular project, follow these additional steps:
+
+### Install Dependencies
+
+Run the following commands in your terminal:
+
+```bash
+  ng add @angular-eslint/schematics
+
+  npm install -D @bisual/eslint-config-js-ts prettier-eslint eslint-config-prettier eslint-plugin-prettier
+```
+
+### ESLint Configuration
+
+Add the following configuration to the .eslintrc.json file:
+
+```json
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "@bisual/eslint-config-js-ts"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    },
+    {
+      "files": ["*.html"],
+      "excludedFiles": ["*inline-template-*.component.html"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prettier/prettier": ["error", { "parser": "angular" }]
+      }
+    }
+  ]
+}
+```
+
+### Automatic Formatting Configuration
+
+Add the following to the settings.json file inside the .vscode folder:
+
+- Cree una carpeta llamada `.vscode` en la raíz del proyecto.
+- Dentro de la carpeta `.vscode`, cree un archivo llamado `settings.json`.
+- Agregue el siguiente contenido al archivo `settings.json`:
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+    "editor.formatOnSave": false
+  }
+}
+```
+
+Make sure to install the [ESLint extension](`https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint`) in Visual Studio Code if you haven't already. If you encounter any issues, try restarting Visual Studio Code.
