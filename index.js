@@ -172,40 +172,5 @@ module.exports = {
     // Easy autofixable import sorting.
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-
-    // ANGULAR
-    "@angular-eslint/directive-selector": [
-      "error",
-      {
-        "type": "attribute",
-        "prefix": "app",
-        "style": "camelCase"
-      }
-    ],
-    "@angular-eslint/component-selector": [
-      "error",
-      {
-        "type": "element",
-        "prefix": "app",
-        "style": "kebab-case"
-      }
-    ]
-  },
-  overrides: [
-    // NOTE: Format files with Prettier projects of Angular
-    {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
-    },
-    {
-      "files": ["*.html"],
-      "excludedFiles": ["*inline-template-*.component.html"],
-      "extends": ["plugin:prettier/recommended"],
-      "rules": {
-        // NOTE: WE ARE OVERRIDING THE DEFAULT CONFIG TO ALWAYS SET THE PARSER TO ANGULAR (SEE BELOW)
-        "prettier/prettier": ["error", { "parser": "angular" }]
-      }
-    }
-  ]
+  }
 };
