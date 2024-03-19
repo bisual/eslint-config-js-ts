@@ -4,3 +4,4 @@ rules.md
 
 vendor
 composer.lock
+.DS_Store
