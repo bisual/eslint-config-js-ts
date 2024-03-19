@@ -34,7 +34,7 @@ Follow these steps to enable automatic code formatting on save:
     "source.fixAll.eslint": "explicit"
   },
   "eslint.validate": ["javascript", "typescript", "javascriptreact"]
-  // javascriptreact -> para archivos con extensión .jsx o .tsx
+  // javascriptreact -> for files with extension .jsx or .tsx
 }
 ```
 
