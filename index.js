@@ -80,7 +80,6 @@ module.exports = {
     "no-useless-rename": ["error"],
 
     "@typescript-eslint/no-shadow": "off",
-    "@typescript-eslint/naming-convention": "off",
 
     // Regla para el orden de los miembros en las clases
     // Atributos → Constructor → Public → Protected → Private
@@ -131,7 +130,7 @@ module.exports = {
       // las variables en camelCase
       {
         selector: 'variable',
-        format: ['camelCase'],
+        format: ['camelCase', 'UPPER_CASE'],
         leadingUnderscore: 'forbid',
         trailingUnderscore: 'forbid',
       },
