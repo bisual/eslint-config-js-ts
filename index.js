@@ -21,6 +21,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:tailwindcss/recommended",
+    // https://github.com/sindresorhus/eslint-plugin-unicorn#preset-configs
     "plugin:unicorn/recommended",
   ],
   plugins: ["@typescript-eslint", "jsx-a11y", "react-hooks", "tsdoc", "prettier", "simple-import-sort", "unicorn"],
