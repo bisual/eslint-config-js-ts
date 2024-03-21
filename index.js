@@ -40,13 +40,14 @@ module.exports = {
     },
   },
   rules: {
+    "unicorn/better-regex": "error",
     "unicorn/filename-case": [
       "error",
       {
         "case": "kebabCase"
       }
     ],
-    
+
     "no-console": "warn",
     "no-use-before-define": "warn",
 
