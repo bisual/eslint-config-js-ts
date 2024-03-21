@@ -1,7 +1,7 @@
 {
   "name": "@bisual/eslint-config-js-ts",
   "author": "Bisual",
-  "version": "0.1.55",
+  "version": "0.1.56",
   "description": "Bisual ESLint configuration for JavaScript and TypeScript projects",
   "main": "index.js",
   "private": false,
@@ -36,7 +36,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
     "eslint-plugin-tailwindcss": "^3.15.1",
-    "eslint-plugin-tsdoc": "^0.2.17"
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "eslint-plugin-unicorn": "^51.0.1"
   },
   "devDependencies": {
     "eslint": "^8.57.0"
