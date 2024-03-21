@@ -1,7 +1,7 @@
 {
   "name": "@bisual/eslint-config-js-ts",
   "author": "Bisual",
-  "version": "0.1.56",
+  "version": "0.1.58",
   "description": "Bisual ESLint configuration for JavaScript and TypeScript projects",
   "main": "index.js",
   "private": false,

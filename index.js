@@ -21,6 +21,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:tailwindcss/recommended",
+    "plugin:unicorn/recommended",
   ],
   plugins: ["@typescript-eslint", "jsx-a11y", "react-hooks", "tsdoc", "prettier", "simple-import-sort", "unicorn"],
   env: {
@@ -40,14 +41,6 @@ module.exports = {
     },
   },
   rules: {
-    "unicorn/better-regex": "error",
-    "unicorn/filename-case": [
-      "error",
-      {
-        "case": "kebabCase"
-      }
-    ],
-
     "no-console": "warn",
     "no-use-before-define": "warn",
 
