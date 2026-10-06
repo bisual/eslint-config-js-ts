@@ -1,0 +1,20 @@
+{
+  "name": "eslint-config-js-ts-smoke-react",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=99999"
+  },
+  "dependencies": {
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@bisual/eslint-config-js-ts": "file:../..",
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.39.0",
+    "@types/react": "^18.3.0",
+    "eslint": "^9.39.5",
+    "tailwindcss": "^3.4.17",
+    "typescript": "~5.9.0"
+  }
+}

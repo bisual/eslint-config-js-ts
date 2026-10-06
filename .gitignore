@@ -5,3 +5,5 @@ rules.md
 vendor
 composer.lock
 .DS_Store
+smoke/**/node_modules
+smoke/**/package-lock.json

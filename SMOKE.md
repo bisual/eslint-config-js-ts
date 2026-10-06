@@ -1,75 +1,79 @@
 # Smoke test results (`0.2.0`)
 
-Re-run: **2026-10-06** (local). ESLint 9 + FlatCompat.
+> **Pegar en el PR** (abajo: bloque listo). Validado 2026-10-06.
 
-## 1) React / TypeScript (minimal fixture + FlatCompat)
+---
 
-**Setup:** `/tmp/eslint-smoke-react` with:
+## Texto para el PR
 
-- `eslint@^9.39.5`
-- `@bisual/eslint-config-js-ts` via `file:…/eslint-config-js-ts`
-- `@eslint/eslintrc` + `@eslint/js`
-- `tailwindcss@3` + `tailwind.config.js` (required by `plugin:tailwindcss/recommended`)
-- `resolvePluginsRelativeTo` → Bisual package directory
+### Smoke tests (ESLint 9 + FlatCompat)
 
-**Command:** `npx eslint src/App.tsx --max-warnings=99999`
+Salto grande (ESLint 8→9, typescript-eslint 7→8, react-hooks 5). Validación:
 
-| | |
-| --- | --- |
-| Config load | OK |
-| Exit code | `1` (rule violations on dirty sample — expected) |
-| Wall time | ~8s |
+| App | Tipo | Cómo |
+| --- | --- | --- |
+| React/TS | Fixture reproducible en el repo (`smoke/react`) | `npm run smoke:react` |
+| Angular | App real `wurth-modyf/frontend-modyf` (ESLint 9.39.5, FlatCompat, `file:` → este paquete) | `npx eslint src/main.ts src/app/components/main/main.component.ts` |
 
-**Sample file** `src/App.tsx` (deliberately “dirty”):
+#### Errores de config vs reglas nuevas
 
-| Rule | Result |
-| --- | --- |
-| `prefer-destructuring` | error (Use object destructuring) |
-| `no-nested-ternary` | error |
-| `import/no-extraneous-dependencies` | error (react in devDependencies) |
-| `eqeqeq` | error (`==`) |
-| `import/prefer-default-export` | error |
-| `unicorn/filename-case` | error |
-| `@typescript-eslint/consistent-type-imports` | error |
-| `prettier/prettier` | errors (quotes) |
-| `no-console` | warning |
+| | React (`smoke/react`) | Angular (`frontend-modyf`) |
+| --- | --- | --- |
+| **Errores de config** (schema, plugin missing, type-info crash, hang) | **Ninguno** | **Ninguno** |
+| **Carga FlatCompat** | OK | OK (`projectService: true`, `only-throw-error` = error) |
+| **Exit code** | `1` (violaciones de reglas en sample sucio — esperado) | `1` (violaciones de reglas — esperado) |
 
-**Summary:** 12 problems (11 errors, 1 warning). No config/schema failures.
+**React — reglas nuevas / Airbnb-subset que disparan** (sample a propósito):
 
-**Verdict:** FlatCompat + shareable config works; Airbnb-subset rules fire as expected.
+```text
+prefer-destructuring          error
+no-nested-ternary             error
+eqeqeq                        error
+import/prefer-default-export  error
+@typescript-eslint/consistent-type-imports  error
+no-console                    warning
+```
 
-## 2) Angular (`wurth-modyf/frontend-modyf`, ESLint 9.39.5)
+**Angular — hallazgos de reglas** (no config):
 
-**Setup:** `file:../../eslint-config-js-ts`, FlatCompat, `resolvePluginsRelativeTo` → Bisual package, `projectService: true` + `tsconfigRootDir` (replaces Bisual’s `parserOptions.project` to avoid hang).
+```text
+main.component.ts
+  simple-import-sort/imports
+  import/prefer-default-export
+  @angular-eslint/prefer-on-push-component-change-detection
 
-**Command:** `npx eslint src/main.ts src/app/components/main/main.component.ts --max-warnings=99999`
+main.ts
+  simple-import-sort/imports
+  arrow-body-style
+  no-restricted-globals
+  unicorn/prefer-top-level-await
+  no-console
+```
 
-| | |
-| --- | --- |
-| Config load | OK |
-| `@typescript-eslint/only-throw-error` | enabled (`[2]` / error) |
-| `projectService` | `true` |
-| Exit code | `1` (rule violations — expected) |
-| Wall time | ~15s |
+**Conclusión:** no hay fallos de carga de la shareable config. Lo que aparece son reglas (Airbnb-subset + Bisual + Angular). Detalle completo en este archivo.
 
-**Rule findings:**
+---
 
-| File | Rule |
-| --- | --- |
-| `main.component.ts` | `simple-import-sort/imports`, `import/prefer-default-export`, `@angular-eslint/prefer-on-push-component-change-detection` |
-| `main.ts` | `simple-import-sort/imports`, `arrow-body-style`, `no-restricted-globals`, `unicorn/prefer-top-level-await`, `no-console` |
+## Detalle
 
-**Summary:** 9 problems (7 errors, 2 warnings). No config/schema failures; no type-info crash.
+### 1) React / TypeScript — `smoke/react`
 
-### Historical fixes (still relevant)
+App mínima React+TS con ESLint 9 + FlatCompat, versionada en el repo (no hay otra app React de producto a mano que consuma este paquete).
 
-1. Use `eslint-plugin-tailwindcss@^3.18` in the shareable package (v4 breaks FlatCompat/eslintrc with `Unexpected top-level property "name"`).
-2. Prefer `projectService` over stripping `project` so `@typescript-eslint/only-throw-error` can stay on.
+```bash
+npm run smoke:react
+```
 
-**Verdict:** Angular + FlatCompat runs with type-aware `only-throw-error` enabled via `projectService`.
+- Config: [`smoke/react/eslint.config.js`](smoke/react/eslint.config.js)
+- Sample sucio: [`smoke/react/src/app.tsx`](smoke/react/src/app.tsx)
 
-## Notes for reviewers
+### 2) Angular — `frontend-modyf`
 
-- Airbnb habitual rules (`prefer-destructuring`, `no-nested-ternary`, `import/no-extraneous-dependencies`, …) confirmed on React smoke.
-- Subset vs full Airbnb is **documented** in README + CHANGELOG (intentional omissions only for format / import-order / underscore).
-- No `"@bisual/eslint-config-js-ts": "file:"` in **this** package’s `devDependencies` (the Angular app uses `file:` for local testing).
+- FlatCompat + `resolvePluginsRelativeTo` al paquete Bisual
+- `projectService: true` (evita hang de `parserOptions.project` legacy)
+- `@typescript-eslint/only-throw-error` **enabled**
+
+### Fixes de config descubiertos en smoke (ya aplicados)
+
+1. `eslint-plugin-tailwindcss@^3.18` en dependencies del paquete (v4 rompe FlatCompat/eslintrc).
+2. Angular: `projectService` en lugar de strippear `project`, para poder mantener `only-throw-error`.
