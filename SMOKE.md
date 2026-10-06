@@ -76,4 +76,6 @@ npm run smoke:react
 ### Fixes de config descubiertos en smoke (ya aplicados)
 
 1. `eslint-plugin-tailwindcss@^3.18` en dependencies del paquete (v4 rompe FlatCompat/eslintrc).
-2. Angular: `projectService` en lugar de strippear `project`, para poder mantener `only-throw-error`.
+2. **React:** en `smoke/react/eslint.config.js`, `compat.config` con `parserOptions.project: ./tsconfig.json` y `tsconfigRootDir` del fixture (no el `tsconfig` del paquete Bisual). **Angular:** `projectService: true` + `tsconfigRootDir` (app real).
+3. **React smoke:** `prettier/prettier` desactivado en el fixture — `eslint-plugin-prettier` busca config de Prettier hacia arriba y con enlace `file:` puede colgar; no afecta al resto de reglas del smoke.
+4. `npm run smoke:react` instala dependencias en la **raíz del paquete** antes del fixture (`file:../..` necesita `node_modules` del shareable config).

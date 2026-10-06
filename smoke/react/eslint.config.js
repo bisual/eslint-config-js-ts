@@ -13,13 +13,25 @@ const compat = new FlatCompat({
 });
 
 module.exports = [
-  ...compat.extends("@bisual/eslint-config-js-ts"),
+  ...compat.config({
+    extends: ["@bisual/eslint-config-js-ts"],
+    parserOptions: {
+      project: "./tsconfig.json",
+      tsconfigRootDir: __dirname,
+    },
+  }),
   {
     settings: {
       react: { version: "18.0" },
       tailwindcss: {
         config: path.join(__dirname, "tailwind.config.js"),
       },
+    },
+  },
+  {
+    rules: {
+      // eslint-plugin-prettier walks parent dirs for Prettier config; with `file:` that can hang.
+      "prettier/prettier": "off",
     },
   },
 ];

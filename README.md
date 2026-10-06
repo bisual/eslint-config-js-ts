@@ -97,7 +97,14 @@ const compat = new FlatCompat({
 });
 
 module.exports = [
-  ...compat.extends("@bisual/eslint-config-js-ts"),
+  ...compat.config({
+    extends: ["@bisual/eslint-config-js-ts"],
+    parserOptions: {
+      // Shareable config points at its own tsconfig; override for your app.
+      project: "./tsconfig.json",
+      tsconfigRootDir: __dirname,
+    },
+  }),
 ];
 ```
 
