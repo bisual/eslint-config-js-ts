@@ -22,8 +22,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
+  "files": [
+    "index.js",
+    "airbnb-rules.js",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
-    "@angular-eslint/template-parser": "^22.0.0",
     "@typescript-eslint/eslint-plugin": "^8.71.0",
     "@typescript-eslint/parser": "^8.71.0",
     "confusing-browser-globals": "^1.0.11",
@@ -34,13 +39,12 @@
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
-    "eslint-plugin-tailwindcss": "^3.15.1",
     "eslint-plugin-tsdoc": "^0.2.17",
     "eslint-plugin-unicorn": "^56.0.1"
   },
   "devDependencies": {
-    "@bisual/eslint-config-js-ts": "file:",
     "eslint": "^9.39.5",
+    "eslint-plugin-tailwindcss": "^4.4.0",
     "typescript": "~5.9.0"
   },
   "eslintConfig": {
@@ -49,10 +53,14 @@
     }
   },
   "peerDependencies": {
+    "@angular-eslint/template-parser": ">=18.0.0",
     "eslint": "^9.0.0",
     "typescript": ">=4.8.4 <6.1.0"
   },
   "peerDependenciesMeta": {
+    "@angular-eslint/template-parser": {
+      "optional": true
+    },
     "typescript": {
       "optional": true
     }
