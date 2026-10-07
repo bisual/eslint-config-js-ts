@@ -1,5 +1,5 @@
 const confusingBrowserGlobals = require("confusing-browser-globals");
-const airbnbSpirit = require("./airbnb-rules");
+const airbnbRules = require("./airbnb-rules");
 
 module.exports = {
   parser: "@typescript-eslint/parser",
@@ -51,7 +51,7 @@ module.exports = {
     },
   },
   rules: {
-    ...airbnbSpirit.rules,
+    ...airbnbRules.rules,
 
     "no-console": "warn",
 
