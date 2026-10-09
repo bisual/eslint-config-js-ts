@@ -11,16 +11,14 @@
     "typescript",
     "javascript"
   ],
-  "homepage": "https://github.com/bisual/bisual-eslint/tree/main",
+  "homepage": "https://github.com/bisual/eslint-config-js-ts/tree/main",
   "organization": "bisual",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bisual/bisual-eslint.git",
-    "directory": "packages/eslint-config-frontend"
+    "url": "git+https://github.com/bisual/eslint-config-js-ts.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "smoke:react": "npm install --legacy-peer-deps && npm install --prefix smoke/react --legacy-peer-deps && npm run lint --prefix smoke/react"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
   "files": [

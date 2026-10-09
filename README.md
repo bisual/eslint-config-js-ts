@@ -34,16 +34,6 @@ With ESLint 9, each consumer must load it through [`FlatCompat`](https://eslint.
 
 **Planned follow-up:** publish a **native flat** export from this package (no FlatCompat required in consumers). Until then, FlatCompat in each project is the supported path.
 
-### Smoke validation
-
-See [`SMOKE.md`](SMOKE.md) (incluye bloque listo para pegar en el PR).
-
-```bash
-npm run smoke:react   # React/TS + FlatCompat fixture in smoke/react
-```
-
-Angular was validated against a real app (`frontend-modyf`) with ESLint 9 + FlatCompat.
-
 ## Airbnb rules (`airbnb-rules.js`)
 
 [`airbnb-rules.js`](airbnb-rules.js) replaces `eslint-config-airbnb-typescript/base` for ESLint 9.
