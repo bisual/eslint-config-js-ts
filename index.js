@@ -50,6 +50,7 @@ module.exports = {
       },
     },
   },
+  overrides: [...(airbnbRules.overrides || [])],
   rules: {
     ...airbnbRules.rules,
 
@@ -89,7 +90,7 @@ module.exports = {
     "object-shorthand": ["error", "always"],
     "no-useless-rename": ["error"],
 
-    // Override Airbnb spirit default: allow shadowing in this config
+    // Bisual: allow shadowing (overrides airbnb-typescript remap)
     "@typescript-eslint/no-shadow": "off",
 
     // Regla para el orden de los miembros en las clases

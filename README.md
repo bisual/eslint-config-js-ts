@@ -2,7 +2,7 @@
 
 **Requires ESLint 9+.** Apps still on ESLint 8.x must upgrade.
 
-This package no longer depends on `eslint-config-airbnb-typescript` (incompatible with ESLint 9). Airbnb best practices live in [`airbnb-rules.js`](airbnb-rules.js); formatting stays with Prettier.
+This package no longer depends on `eslint-config-airbnb-typescript` (incompatible with ESLint 9). [`airbnb-rules.js`](airbnb-rules.js) mirrors what `airbnb-typescript/base` actually enabled in `0.1.x` (TS remaps + a few `import/*` tweaks) — **not** the full `eslint-config-airbnb` / `airbnb-base` surface. Formatting stays with Prettier.
 
 ## Breaking changes for consumers (`0.2.0`)
 
@@ -38,33 +38,28 @@ With ESLint 9, each consumer must load it through [`FlatCompat`](https://eslint.
 
 [`airbnb-rules.js`](airbnb-rules.js) replaces `eslint-config-airbnb-typescript/base` for ESLint 9.
 
-**This is an intentional curated subset, not a drop-in.** Removing Airbnb TypeScript was required for ESLint 9; the replacement keeps Airbnb **best-practice behavior** where practical. See [`CHANGELOG.md`](CHANGELOG.md) for the `0.2.0` behavior note.
+**Parity target is `airbnb-typescript/base`, not `eslint-config-airbnb`.** In `0.1.x` this package extended `airbnb-typescript/base`, which never pulled in the full airbnb-base rule set. Early `0.2.0` mistakenly re-enabled many of those rules and flooded VS Code; the file is now slimmed back to that historical surface.
 
-### Included (Airbnb-equivalent)
+### Included (parity with `airbnb-typescript/base`)
 
-Non-formatting rules from airbnb-base / airbnb-typescript, including the habitual ones called out in review:
+- TypeScript remaps: `default-param-last`, `dot-notation`, `no-array-constructor`, `no-dupe-class-members`, `no-empty-function`, `no-implied-eval`, `no-loss-of-precision`, `no-loop-func`, `no-redeclare`, `no-shadow`, `only-throw-error` (v8 name for `no-throw-literal`), `no-unused-expressions`, `no-useless-constructor`, `return-await`
+- Import tweaks: `import/extensions` (with `.ts` / `.tsx`), `import/no-extraneous-dependencies` (with TS test patterns)
+- TS file overrides that turn off rules already covered by the TypeScript compiler / import plugin
 
-- `prefer-destructuring`, `no-nested-ternary`, `no-restricted-syntax`
-- `import/no-extraneous-dependencies` (with `.ts` / `.tsx` test patterns)
-- `prefer-arrow-callback`, `arrow-body-style`, `no-restricted-exports`
-- `no-restricted-properties`, `prefer-regex-literals`, `import/no-cycle`, `import/prefer-default-export`, etc.
-- TypeScript stand-ins where Airbnb used `@typescript-eslint/*` (`return-await`, `only-throw-error`, `no-shadow`, …)
-
-### Intentionally omitted (documented)
-
-Linting is **not** a 1:1 clone of old Airbnb; some style/order rules are intentionally elsewhere or dropped:
+### Intentionally omitted
 
 | Omitted | Why |
 | --- | --- |
-| Formatting/layout (`indent`, `semi`, `quotes`, spacing, …) | Removed from ESLint 9 core; Prettier + `eslint-config-prettier` own this |
-| `import/order`, `import/newline-after-import` | This package uses `simple-import-sort` instead |
-| `no-underscore-dangle` | Conflicts with Bisual `naming-convention` requiring `_` on private members |
+| Full airbnb-base (`prefer-destructuring`, `no-restricted-syntax` / ForOf, `import/prefer-default-export`, `prefer-arrow-callback`, …) | Never enabled by `airbnb-typescript/base` in `0.1.x` |
+| Formatting/layout (`indent`, `semi`, `quotes`, spacing, …) | Prettier + `eslint-config-prettier` |
+| `import/order`, `import/newline-after-import` | This package uses `simple-import-sort` |
+| `naming-convention`, `no-unused-vars`, `no-use-before-define` | Owned by Bisual overrides in `index.js` |
 
 ### Bisual overrides in `index.js`
 
-After merging Airbnb rules, [`index.js`](index.js) still applies Bisual-specific overrides (e.g. `no-continue` / `no-plusplus` off, `class-methods-use-this` off, `@typescript-eslint/no-shadow` off, `import/no-unresolved` off). Those are deliberate product choices, not incomplete Airbnb coverage.
+[`index.js`](index.js) still applies Bisual-specific rules/overrides (e.g. `no-continue` / `no-plusplus` off, `class-methods-use-this` off, `@typescript-eslint/no-shadow` off, `import/no-unresolved` off, `max-classes-per-file`, `no-await-in-loop`). Those are deliberate product choices.
 
-`airbnb-rules.js` exports **rules only**; plugins are declared in `index.js`.
+`airbnb-rules.js` exports **rules + TS overrides**; plugins are declared in `index.js`.
 
 ## Installation
 

@@ -10,18 +10,18 @@
 
 ### Behavior: Airbnb replacement
 
-[`airbnb-rules.js`](airbnb-rules.js) is an **intentional curated subset**, not a drop-in of `airbnb-typescript/base`.
+[`airbnb-rules.js`](airbnb-rules.js) replaces `eslint-config-airbnb-typescript/base` for ESLint 9.
 
-**Included:** non-formatting Airbnb best practices that still exist on ESLint 9, including habitual rules such as `prefer-destructuring`, `no-nested-ternary`, `no-restricted-syntax`, `import/no-extraneous-dependencies`, plus TypeScript equivalents where Airbnb used `@typescript-eslint/*`.
+**Parity target:** what `airbnb-typescript/base` actually enabled in `0.1.x` (selected `@typescript-eslint/*` remaps + `import/extensions` / `import/no-extraneous-dependencies` + TS overrides). It does **not** re-enable the full `eslint-config-airbnb` / `airbnb-base` surface — that was never part of `0.1.x` and caused excessive VS Code noise in early `0.2.0`.
 
-**Intentionally omitted (stricter / different tooling elsewhere):**
+**Included:** TS remaps (`return-await`, `only-throw-error`, `no-empty-function`, …), import tweaks with `.ts`/`.tsx`, and compiler-covered rule disables for `*.ts`/`*.tsx`.
+
+**Intentionally omitted:**
 
 | Omitted | Why |
 | --- | --- |
-| Formatting/layout (`indent`, `semi`, `quotes`, spacing, …) | Removed from ESLint 9 core; Prettier owns formatting |
+| Full airbnb-base (`prefer-destructuring`, `no-restricted-syntax`, `import/prefer-default-export`, …) | Never active via `airbnb-typescript/base` in `0.1.x` |
+| Formatting/layout (`indent`, `semi`, `quotes`, spacing, …) | Prettier owns formatting |
 | `import/order`, `import/newline-after-import` | This package uses `simple-import-sort` |
-| `no-underscore-dangle` | Conflicts with Bisual private-member `_` naming |
 
-**Bisual overrides in `index.js`** (deliberate product choices vs stock Airbnb): e.g. `no-continue` / `no-plusplus` off, `class-methods-use-this` off, `@typescript-eslint/no-shadow` off, `import/no-unresolved` off.
-
-Expect **different lint output** vs `0.1.x` (not necessarily “more laxo” overall: many Airbnb rules remain; a few style/order rules are covered by Prettier / simple-import-sort / Bisual naming instead).
+**Bisual overrides in `index.js`** (deliberate product choices): e.g. `no-continue` / `no-plusplus` off, `class-methods-use-this` off, `@typescript-eslint/no-shadow` off, `import/no-unresolved` off.
